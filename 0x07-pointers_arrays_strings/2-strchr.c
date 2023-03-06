@@ -1,26 +1,26 @@
 #include "main.h"
 
 /**
- * _memset - function fill the first @n bytes of the memory area pointed
- * to by @s with the constant byte @b
+ * _strchr - locates a character in a string
  *
- * @n: bytes of the memory area pointed to by @s
+ * @c: occurrence of the character
  *
- * @s: with the constant byte @b
+ * @s: in the string
  *
- * @b: memory area pointer
- *
- * Return: a pointer to the memory area @s
+ * Return: a pointer to the first occurrence of the character
  */
-char *_memset(char *s, char b, unsigned int n)
+
+char *_strchr(char *s, char c)
 {
-	unsigned int i = 0;
-
-	while (i < n)
+	while (*s)
 	{
-	s[i] = b;
-	i++;
+		if (*s != c)
+			s++;
+		else
+			return (s);
 	}
+	if (c == '\0')
+		return (s);
 
-	return (s);
+	return (NULL);
 }
